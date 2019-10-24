@@ -54,42 +54,42 @@ classdef HCar
             
             % Input Properties - Paramters
             obj.name = "Default HalfCar";
-%             obj.mass_sm = 400;
-%             obj.mass_sm_dis = 50;
-%             obj.Inertia = 600;
-%             obj.Inertia_NSM_1 = 2.4; % 
-%             obj.Inertia_NSM_2 = 3.2;
-%             obj.mass_usm_1 = 42;
-%             obj.mass_usm_2 = 42;
-%             obj.w2w = 3;
-%             obj.cg_SM_Height = 0.336;
-%             obj.cg_USM_Height = 0.225;
-%             obj.cg_USM_Height2 = 0.310;
-%             obj.rh_1 = 0.067;
-%             obj.rh_2 = 0.081;
-%             obj.a_RH_X = 0.75; 
-%             obj.b_RH_X = -3.25; 
-%             
-%             % Input Properties - Components
-%             obj.coil1 = Coilover;
-%             obj.coil2 = Coilover;
-%             obj.damper1 = Damper;
-%             obj.damper2 = Damper;
-%             obj.tire1 = TireCus;
-%             obj.tire2 = TireCus;
-%             obj.axleSusp = AxleSuspension;
-%             obj.aero = Aerodynamics;
-%             
-%             % Input Properties - Simulation Inputs
-%             %obj.simInputs = SimInputs(obj);
-%             %obj.simInputs2 = SimInputs2();
-%             obj.simInputs3 = SimInputs3();
+            obj.mass_sm = 400;
+            obj.mass_sm_dis = 50;
+            obj.Inertia = 600;
+            obj.Inertia_NSM_1 = 2.4; % 
+            obj.Inertia_NSM_2 = 3.2;
+            obj.mass_usm_1 = 42;
+            obj.mass_usm_2 = 42;
+            obj.w2w = 3;
+            obj.cg_SM_Height = 0.336;
+            obj.cg_USM_Height = 0.225;
+            obj.cg_USM_Height2 = 0.310;
+            obj.rh_1 = 0.067;
+            obj.rh_2 = 0.081;
+            obj.a_RH_X = 0.75; 
+            obj.b_RH_X = -3.25; 
             
-%             % Computed Properties - Parameters
-%             [obj.mass_sm_1,obj.mass_sm_2] = obj.Compute_AxleMass();
-%             [obj.dis_a12cg,obj.dis_a22cg] = obj.Compute_DisFromCG();
-%             [obj.b_RH_X,obj.b_RH_X] = obj.Compute_RHPoint_DisFromCG();% a + Ax --> See Ipad Notes % -(a + Bx) --> See Ipad Notes
-%             obj = obj.Compute_Hyp();
+            % Input Properties - Components
+            obj.coil1 = Coilover;
+            obj.coil2 = Coilover;
+            obj.damper1 = Damper;
+            obj.damper2 = Damper;
+            obj.tire1 = TireCus;
+            obj.tire2 = TireCus;
+            obj.axleSusp = AxleSuspension;
+            obj.aero = Aerodynamics;
+            
+            % Input Properties - Simulation Inputs
+            %obj.simInputs = SimInputs(obj);
+            %obj.simInputs2 = SimInputs2();
+            obj.simInputs3 = SimInputs3();
+            
+            % Computed Properties - Parameters
+            [obj.mass_sm_1,obj.mass_sm_2] = obj.Compute_AxleMass();
+            [obj.dis_a12cg,obj.dis_a22cg] = obj.Compute_DisFromCG();
+            [obj.b_RH_X,obj.b_RH_X] = obj.Compute_RHPoint_DisFromCG();% a + Ax --> See Ipad Notes % -(a + Bx) --> See Ipad Notes
+            obj = obj.Compute_Hyp();
             
         end
         
