@@ -1,6 +1,7 @@
 classdef HCar
-    %HCAR Summary of this class goes here
-    %   Detailed explanation goes here
+    %HCAR Main Class of the Half Car Model
+    %   HalfCar class containing all properties of the Half Car and all the
+    %   component and simulation inputs. 
     
     %% PROPERTIES
     properties
@@ -19,8 +20,8 @@ classdef HCar
         cg_USM_Height2 double % Non-Suspended Mass 2 CG Height [m]
         rh_1 double % Ride Height of the Front/Left Axle [m]
         rh_2 double % Ride height of the Rear/Right Axle [m]
-        a_RH_X
-        b_RH_X
+        a_RH_X double % Ride Height Reference Point Front X Coordinate [m]
+        b_RH_X double % Ride Height Reference Point Rear X Coordinate [m]
         
         % Computed Properties - Parameters
         mass_sm_1 double % Sprung Mass on Front/Left Axle [Kg]
