@@ -222,12 +222,9 @@ fga2 = ma2*9.81;
 torqueWheel1 = -(fxy_1*rL1) - myx_1 + md_1; 
 torqueWheel2 = -(fxy_2*rL2) - myx_2 + md_2;
     
-% Non-Supended Weight Transfer
-fnsm = 0*(((ma1 + ma2))*acc*hcar.cg_USM_Height)/hcar.w2w;
-
 % Net Vertical Load on Unsprung Mass || Used in Moment Equation to find instant center angle change
-fnetv1 = fkt1 + fdt1 + fnsm - fga1 - fs1 - fd1;
-fnetv2 = fkt2 + fdt2 - fnsm - fga2 - fs2 - fd2; 
+fnetv1 = fkt1 + fdt1 - fga1 - fs1 - fd1;
+fnetv2 = fkt2 + fdt2 - fga2 - fs2 - fd2; 
 
 %% Test
 if t  > 9.300015
@@ -264,9 +261,6 @@ fx2 = fxy_2 - hcar.mass_usm_2*acc;
 fz1_s = -fx1*tan(th1);% + ((md_1 + myx_1)/hcar.axleSusp.vsal_1);% Reaction component on Sprung Mass
 fz2_s = fx2*tan(th2);% - ((md_2 + myx_2)/hcar.axleSusp.vsal_2);% Reaction component on Sprung Mass
 
-% fz1_u = -fz1_s; % Action component of jacking force on Unsprung Mass
-% fz2_u =  -fz2_s;% Action component of jacking force on Unsprung Mass
-
 %% --- Vertical Equations of Motion --- %
 
 hypRL1 = (sqrt((hcar.axleSusp.ich_1 - rL1)^2 + (hcar.axleSusp.vsal_1)^2));
@@ -288,21 +282,11 @@ za1_dd = -hypRL1*(md_1 - myx_1 - hcar.Inertia_NSM_1*omega1_d - (fxy_1)*rL1...
           - hcar.mass_usm_1*acc*(hcar.axleSusp.ich_1 - rL1))/...
          (Iapc1);
 
-% za1_dd = (-fs1 - fd1 - fga1 + fkt1 + fdt1 + fnsm + fz1_u)/hcar.mass_usm_1 - ...
-%           th1_dd*hypRL1;
-
-
 za2_dd = hypRL2*(md_2 - myx_2 - hcar.Inertia_NSM_2*omega2_d - (fxy_2)*rL2...
           + fnetv2*hcar.axleSusp.vsal_2...
           - (fxy_2)*(hcar.axleSusp.ich_2 - 0*rL2)...
           - hcar.mass_usm_2*acc*(hcar.axleSusp.ich_2 - rL2))/...
-         (Iapc2);
-      
-% za2_dd = (-fs2 - fd2 - fga2 + fkt2 + fdt2 - fnsm + fz2_u)/hcar.mass_usm_2 + ...
-%           0*th2_dd*hypRL2;
-
-
-      
+         (Iapc2);     
 %% Conditiong the equations to reflect the stat space form
 
 Zdot = [zs_d;

@@ -41,8 +41,6 @@ classdef HCar
         aero Aerodynamics
         
         % Input Properties - Simulation Inputs
-%         simInputs SimInputs % In this class the input is Long Acceleration which is converted to front and rear FORCE and imposed on the wheels (along with burmp profile input)
-%         simInputs2 SimInputs2 % In this class the input is driving/braking torque front and rear (along with bump profile input)
         simInputs3 SimInputs3 % In this class the input is Long Acceleration which is converted to front and rear torque (along with bump profile input)
     end
     
@@ -81,8 +79,6 @@ classdef HCar
             obj.aero = Aerodynamics;
             
             % Input Properties - Simulation Inputs
-            %obj.simInputs = SimInputs(obj);
-            %obj.simInputs2 = SimInputs2();
             obj.simInputs3 = SimInputs3();
             
             % Computed Properties - Parameters
@@ -163,9 +159,7 @@ classdef HCar
             y1 = ich_1 - nsmh_1;
             y2 = ich_2 - nsmh_2;
             
-             % Computed Properties
-%             obj.th_1 = atan(obj.ich_1/obj.vsal_1);
-%             obj.th_2 = atan(obj.ich_2/obj.vsal_2);    
+             % Computed Properties  
             obj.axleSusp.th_1 = atan(ich_1/vsal_1);
             obj.axleSusp.th_2 = atan(ich_2/vsal_2);
 
