@@ -1,4 +1,4 @@
-function [F] = HalfCar_InitCond7(z,hcar)
+function [F] = HalfCar_InitCond11_Aero(z,hcar)
 %HALFCAR_INITCOND Computes and the initial deflections of the Half Car
 %Model
 %   This function contains the equations of motion linearized about the
