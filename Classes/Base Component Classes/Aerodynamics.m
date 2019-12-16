@@ -65,15 +65,7 @@ classdef Aerodynamics
             cDrag = griddata(obj.aeromap(:,1),obj.aeromap(:,2),obj.cDrag,frh,rrh,'linear');
             cDist = griddata(obj.aeromap(:,1),obj.aeromap(:,2),obj.cDist,frh,rrh,'linear');
             
-%             if isnan(cDown)
-%                 cDown = 0;
-%             end
-%             if isnan(cDrag)
-%                 cDrag = 0;
-%             end
-%             if isnan(cDist)
-%                 cDist = 0;
-%             end
+
         end
     end
 end
